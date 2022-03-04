@@ -1,0 +1,26 @@
+// protoc --go_out=plugins=grpc:. *.proto
+syntax = "proto3";
+package m.highscore.v1;
+
+option go_package = "./;game";
+
+service Game{
+    rpc SetHighScore(SetHighScoreRequest) returns (SethighScoreResponse);
+    rpc GetHighScore(GetHighScoreRequest) returns (GethighScoreResponse);
+}
+
+message SetHighScoreRequest {
+    double high_score = 1;
+}
+
+message SethighScoreResponse {
+    bool set = 1;
+}
+
+message GetHighScoreRequest {
+
+}
+
+message GethighScoreResponse {
+    double high_score = 1;
+}
